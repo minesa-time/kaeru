@@ -1,37 +1,33 @@
 {
-    "name": "kaeru",
-    "version": "2.2.2",
-    "description": "A Discord bot is doing unique things.",
-    "main": "index.js",
-    "type": "module",
-    "scripts": {
-        "test": "echo Hi mom!",
-        "start": "npm install && npm update && node src/index.js",
-        "dev": "node src/index.js",
-        "deploy": "node src/applications/register.js && node src/applications/server.js",
-        "server": "node src/applications/server.js",
-        "register": "node src/applications/register.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/minesa-time/kaeru.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/minesa-time/kaeru/issues"
-    },
-    "homepage": "https://github.com/minesa-hub/kaeru#readme",
-    "dependencies": {
-        "@google/generative-ai": "^0.2.1",
-        "@iamtraction/google-translate": "^2.0.1",
-        "chalk": "^5.2.0",
-        "cookie-parser": "^1.4.7",
-        "discord.js": "^14.17.3",
-        "express": "^4.21.2",
-        "fs": "^0.0.1-security",
-        "moment-timezone": "^0.5.43",
-        "node-fetch": "^3.3.2"
-    }
+  "name": "kaeru",
+  "version": "3.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "start:prod": "node dist/index.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "ticket",
+    "system",
+    "kaeru",
+    "minesa"
+  ],
+  "author": "İbrahim Güneş",
+  "license": "ISC",
+  "description": "A Discord bot handles tickets very well.",
+  "dependencies": {
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.2",
+    "@types/ws": "^8.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "eslint": "^9.20.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
 }

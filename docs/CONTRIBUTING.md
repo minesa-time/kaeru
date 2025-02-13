@@ -1,1 +1,1 @@
-thank u :D
+Thank you :D
