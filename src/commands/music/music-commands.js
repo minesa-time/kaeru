@@ -292,26 +292,45 @@ export default {
                         const randomArtist =
                             artists[Math.floor(Math.random() * artists.length)];
 
-                        player
-                            .play(voiceChannel, randomArtist.query, {
-                                textChannel: channel,
-                                member: member,
-                            })
-                            .catch((error) => {
-                                if (
-                                    error instanceof DisTubeError &&
-                                    error.message === "NOT_SUPPORTED_URL"
-                                ) {
-                                    return interaction.followUp({
-                                        content: `${emojis.danger} The provided URL is not supported.`,
-                                    });
-                                } else {
-                                    console.error("An error occurred:", error);
-                                    return interaction.followUp({
-                                        content: `${emojis.danger} The provided URL is not supported.`,
-                                    });
-                                }
+                        try {
+                            await interaction.editReply({
+                                content: `${emojis.info} Searching for music... This may take a moment.`,
                             });
+
+                            player
+                                .play(voiceChannel, randomArtist.query, {
+                                    textChannel: channel,
+                                    member: member,
+                                })
+                                .catch((error) => {
+                                    console.error("Music error:", error);
+                                    if (
+                                        error instanceof DisTubeError &&
+                                        error.message === "NOT_SUPPORTED_URL"
+                                    ) {
+                                        return interaction.followUp({
+                                            content: `${emojis.danger} The provided URL is not supported.`,
+                                        });
+                                    } else {
+                                        return interaction.followUp({
+                                            content: `${
+                                                emojis.danger
+                                            } An error occurred while playing music: ${
+                                                error.message || "Unknown error"
+                                            }`,
+                                        });
+                                    }
+                                });
+                        } catch (error) {
+                            console.error("Music command error:", error);
+                            return interaction.followUp({
+                                content: `${
+                                    emojis.danger
+                                } An unexpected error occurred: ${
+                                    error.message || "Unknown error"
+                                }`,
+                            });
+                        }
 
                         waitForQueueVar((queueVarMessage) => {
                             setTimeout(() => {
