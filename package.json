@@ -25,19 +25,20 @@
     },
     "homepage": "https://github.com/minesa-hub/kaeru#readme",
     "dependencies": {
-        "distube": "^4.0.4",
-        "ffmpeg-static": "^4.4.1",
-        "libsodium-wrappers": "^0.7.11",
-        "opusscript": "^0.0.8",
+        "@distube/spotify": "^2.0.2",
         "@google/generative-ai": "^0.24.0",
         "@iamtraction/google-translate": "^2.0.1",
         "chalk": "^5.4.1",
         "discord.js": "^14.17.3",
+        "distube": "^4.0.4",
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
+        "ffmpeg-static": "^4.4.1",
         "fs": "^0.0.1-security",
+        "libsodium-wrappers": "^0.7.11",
         "moment-timezone": "^0.5.43",
         "mongoose": "^8.10.1",
-        "node-fetch": "^3.3.2"
+        "node-fetch": "^3.3.2",
+        "opusscript": "^0.0.8"
     }
 }

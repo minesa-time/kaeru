@@ -4,9 +4,9 @@ import {
     SlashCommandBuilder,
     bold,
 } from "discord.js";
-import { defaultPermissionErrorForBot } from "../../shortcuts/permissionErrors.js";
+import { defaultPermissionErrorForBot } from "../../resources/permissionErrors.js";
 import { emojis } from "../../resources/emojis.js";
-import player, { waitForQueueVar } from "../../index.js";
+import player, { waitForQueueVar } from "../../config/music.js";
 import { DisTubeError } from "distube";
 import { genres } from "../../resources/genres.js";
 
@@ -287,7 +287,7 @@ export default {
         switch (subgroup) {
             case "play":
                 switch (subcommand) {
-                    case "for_you":
+                    case "foryou":
                         const artists = genres[list];
                         const randomArtist =
                             artists[Math.floor(Math.random() * artists.length)];

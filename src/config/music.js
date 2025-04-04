@@ -1,6 +1,7 @@
 import { DisTube } from "distube";
 import { SpotifyPlugin } from "@distube/spotify";
-import { client } from "./src/config/Configs.js";
+import { client } from "./clientConfig.js";
+import { emojis } from "../resources/emojis.js";
 
 const player = new DisTube(client, {
     emitNewSongOnly: true,
@@ -13,8 +14,8 @@ const player = new DisTube(client, {
 
 let queueVarCallback;
 
-player.on("addSong", (queue, song) => {
-    let message = `## Added new song\n>>> **Song name:** ${song.name}\n**Song duration:** ${song.formattedDuration}\n__**Requested by:**__ ${song.user}`;
+player.on("addSong", (_, song) => {
+    let message = `## ${emojis.reactions.reaction_heart} Added new song\n>>> **Song name:** ${song.name}\n**Song duration:** ${song.formattedDuration}\n__**Requested by:**__ ${song.user}`;
     if (queueVarCallback) {
         queueVarCallback(message);
     }
